@@ -3,8 +3,8 @@ name: Call a reusable workflow
 on:
   workflow_dispatch:
   
-env: 
-  RUNNER: self-hosted
+# env: 
+#   RUNNER: self-hosted
   
 jobs:
   call-workflow-job-one:
@@ -17,7 +17,7 @@ jobs:
   hello_world:
     if: ${{ always() }}
     needs: [  call-workflow-job-two ]
-    runs-on: ${{ env.RUNNER }}
+    runs-on: self-hosted
     steps:
     - name: next stage
       run: echo 0
