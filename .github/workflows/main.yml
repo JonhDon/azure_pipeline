@@ -8,11 +8,11 @@ env:
   
 jobs:
   call-workflow-job-one:
-    uses: azure_pipeline/.github/workflows/job-one.yaml@main
+    uses: azure_pipeline/.github/workflows/job-one.yaml@master
   call-workflow-job-two:
-    uses: azure_pipeline/.github/workflows/job-two.yaml@main
+    uses: azure_pipeline/.github/workflows/job-two.yaml@master
   call-workflow-job-three:
-    uses: azure_pipeline/.github/workflows/job-three.yaml@main
+    uses: azure_pipeline/.github/workflows/job-three.yaml@master
  
   hello_world:
     if: ${{ always() }}
