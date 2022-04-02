@@ -1,0 +1,54 @@
+name: Testing parallel builds
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  checkout_first_pro:
+   # concurrency: 
+    #  group: checkout
+     # cancel-in-progress: true
+    runs-on: atc-enterprise
+    strategy:
+      max-parallel: 0
+    steps:
+    - name: Checkout first project
+      run: sleep 20
+   #   uses: actions/checkout@v2
+    #  with:
+     #   repository: ATC-GitHub/docs-dummy
+      #  ref: main
+       # path: docs-dummy
+
+        
+  checkout_second_pro:
+  #  concurrency: 
+  #    group: checkout_first_pro
+  #    cancel-in-progress: true
+    runs-on: atc-enterprise
+    strategy:
+      max-parallel: 0
+    steps:
+    - name: Checkout second project
+      run: sleep 20 
+     # uses: actions/checkout@v2
+     # with:
+      #  repository: ATC-GitHub/documentation 
+      #  ref: main
+      #  path: atc-doc
+      
+  checkout_3_pro:
+    runs-on: atc-enterprise
+    strategy:
+      max-parallel: 0
+    steps:
+    - name: 3 job
+      run: sleep 40
+        
+  hello_world:
+    if: ${{ always() }}
+    needs: [checkout_first_pro, checkout_second_pro, checkout_3_pro]
+    runs-on: atc-enterprise
+    steps:
+    - name: next stage
+      run: echo 0
