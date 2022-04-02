@@ -1,55 +1,23 @@
-name: Testing parallel builds
+name: Call a reusable workflow
 
 on:
   workflow_dispatch:
   
-concurrency:
-  group: ci-tests-${{ github.ref }}-1
-  cancel-in-progress: true
-
+env: 
+  RUNNER: self-hosted
+  
 jobs:
-  checkout_first_pro:
-    runs-on: atc-enterprise
-    strategy:
-      max-parallel: 0
-    steps:
-    - name: Checkout first project
-      run: sleep 20
-   #   uses: actions/checkout@v2
-    #  with:
-     #   repository: ATC-GitHub/docs-dummy
-      #  ref: main
-       # path: docs-dummy
-
-        
-  checkout_second_pro:
-    concurrency: 
-      group: ${{ github.ref }}
-      cancel-in-progress: true
-    runs-on: atc-enterprise
-    strategy:
-      max-parallel: 0
-    steps:
-    - name: Checkout second project
-      run: sleep 20 
-     # uses: actions/checkout@v2
-     # with:
-      #  repository: ATC-GitHub/documentation 
-      #  ref: main
-      #  path: atc-doc
-      
-  checkout_3_pro:
-    runs-on: atc-enterprise
-    strategy:
-      max-parallel: 0
-    steps:
-    - name: 3 job
-      run: sleep 40
-        
+  call-workflow-job-one:
+    uses: azure_pipeline/.github/workflows/job-one.yaml@main
+  call-workflow-job-two:
+    uses: azure_pipeline/.github/workflows/job-two.yaml@main
+  call-workflow-job-three:
+    uses: azure_pipeline/.github/workflows/job-three.yaml@main
+ 
   hello_world:
     if: ${{ always() }}
-    needs: [checkout_first_pro, checkout_second_pro, checkout_3_pro]
-    runs-on: atc-enterprise
+    needs: [  call-workflow-job-two ]
+    runs-on: ${{ env.RUNNER }}
     steps:
     - name: next stage
       run: echo 0
