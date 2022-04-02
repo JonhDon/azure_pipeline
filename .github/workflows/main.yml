@@ -8,14 +8,13 @@ on:
   
 jobs:
   call-workflow-job-one:
-    uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-one.yaml@master
+    uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-one.yaml@refs/heads/master
 #   call-workflow-job-two:
 #     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-two.yaml@master
 #   call-workflow-job-three:
 #     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-three.yaml@master
  
   hello_world:
-    if: ${{ always() }}
     needs: [  call-workflow-job-one ]
     runs-on: self-hosted
     steps:
