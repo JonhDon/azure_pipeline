@@ -1,0 +1,14 @@
+
+name: Call a reusable workflow
+
+on:
+  push:
+   branches:
+     - main
+  
+# env: 
+#   RUNNER: self-hosted
+  
+jobs:
+  job1:
+    uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-one.yaml@master
