@@ -8,7 +8,7 @@ on:
   
 jobs:
   call-workflow-job-one:
-    uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-one.yaml@refs/heads/master
+    uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-one.yaml@master
 #   call-workflow-job-two:
 #     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-two.yaml@master
 #   call-workflow-job-three:
