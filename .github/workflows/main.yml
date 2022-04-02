@@ -22,4 +22,4 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: Checkout first project
-      run: pwd
+      run: ls
