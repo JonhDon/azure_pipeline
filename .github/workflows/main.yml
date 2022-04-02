@@ -9,10 +9,10 @@ on:
 jobs:
   job1:
     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-one.yaml@master
-#   call-workflow-job-two:
-#     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-two.yaml@master
-#   call-workflow-job-three:
-#     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-three.yaml@master
+  call-workflow-job-two:
+    uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-two.yaml@master
+  call-workflow-job-three:
+    uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-three.yaml@master
  
 # name: test run
 # on:
