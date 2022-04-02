@@ -7,7 +7,7 @@ on:
 #   RUNNER: self-hosted
   
 jobs:
-  call-workflow-job-one:
+  job1:
     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-one.yaml@master
 #   call-workflow-job-two:
 #     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-two.yaml@master
