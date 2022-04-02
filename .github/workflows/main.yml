@@ -1,13 +1,14 @@
 name: Testing parallel builds
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
+  
+concurrency:
+  group: ci-tests-${{ github.ref }}-1
+  cancel-in-progress: true
 
 jobs:
   checkout_first_pro:
-    concurrency: 
-      group: ${{ github.ref }}
-      cancel-in-progress: true
     runs-on: atc-enterprise
     strategy:
       max-parallel: 0
