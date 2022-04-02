@@ -16,7 +16,7 @@
  
 name: test run
 on:
-  workflow_call: 
+  workflow_dispatch: 
 jobs:
   checkout_first_pro:
     runs-on: self-hosted
