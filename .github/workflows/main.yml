@@ -14,9 +14,3 @@ jobs:
 #   call-workflow-job-three:
 #     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-three.yaml@master
  
-  hello_world:
-    needs: [  call-workflow-job-one ]
-    runs-on: self-hosted
-    steps:
-    - name: next stage
-      run: echo 0
