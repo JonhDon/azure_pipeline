@@ -16,7 +16,7 @@ jobs:
  
   hello_world:
     needs: [job1, job2, job3]
-    runs-on: atc-enterprise
+    runs-on: self-hosted
     steps:
     - name: next stage
       run: echo 0
