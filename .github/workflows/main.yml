@@ -1,25 +1,25 @@
-# name: Call a reusable workflow
+name: Call a reusable workflow
 
-# on:
-#   workflow_dispatch:
-  
-# # env: 
-# #   RUNNER: self-hosted
-  
-# jobs:
-#   job1:
-#     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-one.yaml@master
-# #   call-workflow-job-two:
-# #     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-two.yaml@master
-# #   call-workflow-job-three:
-# #     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-three.yaml@master
- 
-name: test run
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
+  
+# env: 
+#   RUNNER: self-hosted
+  
 jobs:
-  checkout_first_pro:
-    runs-on: self-hosted
-    steps:
-    - name: Checkout first project
-      run: ls
+  job1:
+    uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-one.yaml@master
+#   call-workflow-job-two:
+#     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-two.yaml@master
+#   call-workflow-job-three:
+#     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-three.yaml@master
+ 
+# name: test run
+# on:
+#   workflow_dispatch: 
+# jobs:
+#   checkout_first_pro:
+#     runs-on: self-hosted
+#     steps:
+#     - name: Checkout first project
+#       run: ls
