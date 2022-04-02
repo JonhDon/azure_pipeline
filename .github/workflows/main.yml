@@ -9,17 +9,14 @@ on:
 jobs:
   job1:
     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-one.yaml@master
-  call-workflow-job-two:
+  job2:
     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-two.yaml@master
-  call-workflow-job-three:
+  job3:
     uses: SergeyUnderforest/azure_pipeline/.github/workflows/job-three.yaml@master
  
-# name: test run
-# on:
-#   workflow_dispatch: 
-# jobs:
-#   checkout_first_pro:
-#     runs-on: self-hosted
-#     steps:
-#     - name: Checkout first project
-#       run: ls
+  hello_world:
+    needs: [job1, job2, job3]
+    runs-on: atc-enterprise
+    steps:
+    - name: next stage
+      run: echo 0
