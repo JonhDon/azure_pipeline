@@ -2,10 +2,8 @@
 name: Call a reusable workflow
 
 on:
-  push:
-   branches:
-     - main
-  
+  workflow_run: 
+    workflows: [ Call a reusable workflow ]
 # env: 
 #   RUNNER: self-hosted
 jobs:
