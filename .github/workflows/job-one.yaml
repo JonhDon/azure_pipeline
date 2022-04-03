@@ -1,8 +1,8 @@
 on:
-  workflow_call: 
+  workflow_dispatch: 
 jobs:
   checkout_first_pro:
     runs-on: self-hosted
     steps:
     - name: Checkout first project
-      run: pwd
+      run: sleep 200
